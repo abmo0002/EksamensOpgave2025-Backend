@@ -8,7 +8,9 @@ import com.example.eksamensopgave2025backend.repository.DeliveryRepository;
 import com.example.eksamensopgave2025backend.repository.DroneRepository;
 import com.example.eksamensopgave2025backend.repository.PizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -78,12 +80,12 @@ public class DeliveryService {
     public Delivery finishDelivery(Long deliveryId) {
         Optional<Delivery> deliveryOptional = deliveryRepository.findById(deliveryId);
         if (deliveryOptional.isEmpty()) {
-            throw new IllegalArgumentException("Levering ikke fundet.");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Levering ikke fundet.");
         }
 
         Delivery delivery = deliveryOptional.get();
         if (delivery.getDrone() == null) {
-            throw new IllegalStateException("Levering har ingen drone.");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Levering har ingen drone.");
         }
 
         delivery.setActualDeliveryTime(LocalDateTime.now());

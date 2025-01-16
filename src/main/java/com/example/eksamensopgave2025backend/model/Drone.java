@@ -1,4 +1,6 @@
 package com.example.eksamensopgave2025backend.model;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.*;
 
@@ -15,9 +17,11 @@ public class Drone {
     private DroneStatus status;
 
     @ManyToOne
+    @JsonIgnoreProperties("drones")
     private Station station;
 
     @OneToMany(mappedBy = "drone", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("drone")
     private List<Delivery> deliveries = new ArrayList<>();
 
     public Long getId() {
