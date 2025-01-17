@@ -23,7 +23,6 @@ public class DeliveryRestController {
     @GetMapping
     @ResponseBody
     public List<Delivery> getPendingDeliveries() {
-        // Din metode til at hente leveringer
         return deliveryService.getPendingDeliveries();
     }
 

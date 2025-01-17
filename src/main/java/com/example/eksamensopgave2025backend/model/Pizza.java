@@ -1,4 +1,5 @@
 package com.example.eksamensopgave2025backend.model;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -11,11 +12,10 @@ public class Pizza {
     private String title;
 
     @Column(nullable = false)
-    private int price;
+    private double price;
 
 
-
-    public Pizza(String title, int price) {
+    public Pizza(String title, double price) {
         this.title = title;
         this.price = price;
     }
@@ -40,11 +40,11 @@ public class Pizza {
         this.title = title;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }

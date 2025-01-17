@@ -1,4 +1,5 @@
 package com.example.eksamensopgave2025backend.service;
+
 import com.example.eksamensopgave2025backend.model.Station;
 import com.example.eksamensopgave2025backend.repository.StationRepository;
 import org.springframework.beans.factory.annotation.Autowired;

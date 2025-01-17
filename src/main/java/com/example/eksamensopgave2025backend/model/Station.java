@@ -1,7 +1,9 @@
 package com.example.eksamensopgave2025backend.model;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
 import java.util.*;
 
 @Entity

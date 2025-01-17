@@ -1,4 +1,5 @@
 package com.example.eksamensopgave2025backend.repository;
+
 import com.example.eksamensopgave2025backend.model.Delivery;
 import org.springframework.data.jpa.repository.JpaRepository;
 
