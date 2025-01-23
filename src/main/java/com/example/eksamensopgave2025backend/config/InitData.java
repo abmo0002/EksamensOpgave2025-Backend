@@ -37,11 +37,11 @@ public class InitData {
 
 
         if (pizzaRepository.count() == 0) {
-            pizzaRepository.save(new Pizza("Margherita", 80));
-            pizzaRepository.save(new Pizza("Pepperoni", 90));
-            pizzaRepository.save(new Pizza("Kebab", 85));
-            pizzaRepository.save(new Pizza("Vegetar", 75));
-            pizzaRepository.save(new Pizza("Kylling", 95));
+            pizzaRepository.save(new Pizza("Margherita Pizza", 80));
+            pizzaRepository.save(new Pizza("Pepperoni Pizza", 90));
+            pizzaRepository.save(new Pizza("Kartoffel Pizza", 85));
+            pizzaRepository.save(new Pizza("Vegetar Pizza", 75));
+            pizzaRepository.save(new Pizza("Pesto Kylling Pizza", 95));
         }
 
 
@@ -75,7 +75,7 @@ public class InitData {
                 Drone drone2 = new Drone();
                 drone2.setSerialNumber(UUID.randomUUID());
                 drone2.setStation(station1);
-                drone2.setStatus(DroneStatus.IN_OPERATION);
+                drone2.setStatus(DroneStatus.OUT_OF_OPERATION);
                 droneRepository.save(drone2);
             }
         }
@@ -84,8 +84,10 @@ public class InitData {
         if (deliveryRepository.count() == 0) {
             Pizza pizza1 = pizzaRepository.findById(1L).orElse(null);
             Pizza pizza2 = pizzaRepository.findById(2L).orElse(null);
-            Drone drone1 = droneRepository.findById(1L).orElse(null);
-            Drone drone2 = droneRepository.findById(2L).orElse(null);
+            Pizza pizza3 = pizzaRepository.findById(3L).orElse(null);
+            Pizza pizza4 = pizzaRepository.findById(4L).orElse(null);
+
+
 
 
             if (pizza1 != null) {
@@ -111,7 +113,7 @@ public class InitData {
 
             if (pizza1 != null) {
                 Delivery delivery3 = new Delivery();
-                delivery3.setPizza(pizza1);
+                delivery3.setPizza(pizza3);
                 delivery3.setDrone(null);
                 delivery3.setAddress("Christiansborg Slotsplads 1, 1240 København K");
                 delivery3.setExpectedDeliveryTime(LocalDateTime.now().plusMinutes(60));
@@ -120,7 +122,7 @@ public class InitData {
 
             if (pizza2 != null) {
                 Delivery delivery4 = new Delivery();
-                delivery4.setPizza(pizza2);
+                delivery4.setPizza(pizza4);
                 delivery4.setDrone(null);
                 delivery4.setAddress("Søren Kierkegaards Plads 1, 1219 København K");
                 delivery4.setExpectedDeliveryTime(LocalDateTime.now().plusMinutes(75));

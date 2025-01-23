@@ -58,7 +58,7 @@ public class DeliveryService {
 
         Delivery delivery = deliveryOptional.get();
         if (delivery.getDrone() != null) {
-            throw new IllegalStateException("Levering er allerede oprettet.");
+            throw new IllegalStateException("Levering er allerede skeduleret.");
         }
 
         Drone drone;

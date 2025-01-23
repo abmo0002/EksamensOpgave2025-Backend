@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/drones")
-@CrossOrigin(origins = "http://localhost:63342")
+@CrossOrigin
 public class DroneRestController {
 
     @Autowired
